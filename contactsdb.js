@@ -1,31 +1,28 @@
 var express = require("express");
 var app = express();
-const fetch = require("node-fetch");
+const low = require("lowdb");
+const FileSync = require("lowdb/adapters/FileSync");
+const adapter = new FileSync("db.json");
+const db = low(adapter);
+db.defaults({ contacts: [] }).write();
 app.use(express.json());
 // store contacts in an array
-var contacts = [];
-const getData = async () => {
-  let url = "https://pollysnips.s3.amazonaws.com/users.json";
-  try {
-    let res = await fetch(url);
-    let contacts = await res.json();
-    console.log(contacts);
-  } catch (error) {
-    console.log("error");
-  }
-};
-getData();
+const contacts = [];
 app.get("/", function (req, res) {
   res.send("<h1> Routes: try POST to /contact and GET /contacts </h1>");
 });
 // list all contacts
 app.get("/contacts", function (req, res) {
-  res.json(contacts);
+  let con = db.get("contacts");
+  res.json(con);
 });
 // add a contact
 app.post("/contact", (req, res) => {
   contacts.push({ name: req.body.name, email: req.body.email });
   res.json(req.body);
+  db.get("contacts")
+    .push({ name: req.body.name, email: req.body.email })
+    .write();
 });
 
 app.listen(3000);
