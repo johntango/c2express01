@@ -2,7 +2,7 @@ var express = require("express");
 var app = express();
 const fetch = require("node-fetch");
 app.use(express.json());
-// store contacts in an array
+// store contacts in an arrays
 var contacts = [];
 const getData = async () => {
   let url = "https://pollysnips.s3.amazonaws.com/users.json";
