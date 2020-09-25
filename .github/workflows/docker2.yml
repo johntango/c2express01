@@ -1,15 +1,18 @@
-steps:
-  - uses: actions/checkout@v2.3.2
-    name: Check out code
-
-  - uses: mr-smithers-excellent/docker-build-push@v4
-    name: Build & push Docker image
-    with:
-      image: repo/image
-      tag: latest
-      registry: registry-url.io
-      dockerfile: Dockerfile
-      username: ${{ secrets.DOCKETHUB_USERNAME }}
-      password: ${{ secrets.DOCKETHUB_TOKEN }}
-      repository: jrwtango/c2express001
-      tag_with_ref: true
+name: Publish Docker image
+on: push
+jobs:
+  push_to_registries:
+    name: Push Docker image
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2.3.2
+        name: Check out code
+      - uses: mr-smithers-excellent/docker-build-push@v4
+        name: Build & push Docker image
+        with:
+          image: repo/image
+          tag: latest
+          registry: registry-url.io
+          dockerfile: Dockerfile.ci
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
