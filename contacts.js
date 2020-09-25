@@ -8,7 +8,7 @@ const getData = async () => {
   let url = "https://pollysnips.s3.amazonaws.com/users.json";
   try {
     let res = await fetch(url);
-    let contacts = await res.json();
+    contacts = await res.json();
     console.log(contacts);
   } catch (error) {
     console.log("error");
