@@ -15,7 +15,7 @@ jobs:
       - name: Build the tagged Docker image
         run: docker build -t jrwtango/express001 .
       - name: Push the tagged Docker image
-        run: docker push jrwtango/c2express001
+        run: docker push jrwtango/c2express001:latest
       - name: Build the latest Docker image
         run: docker build -t jrwtango/c2express001:latest .
       - name: Push the latest Docker image
