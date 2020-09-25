@@ -1,18 +1,23 @@
-name: Publish Docker image
+name: Docker Image CI
+
 on: push
+
 jobs:
-  push_to_registries:
-    name: Push Docker image
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2.3.2
-        name: Check out code
-      - uses: mr-smithers-excellent/docker-build-push@v4
-        name: Build & push Docker image
-        with:
-          image: repo/image
-          tag: latest
-          registry: registry-url.io
-          dockerfile: Dockerfile.ci
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+build:
+runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v1 # may be actions/checkout@v2 now
+            - name: Login to DockerHub Registry
+              run: echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+            - name: Get the version
+              id: vars
+              run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
+            - name: Build the tagged Docker image
+              run: docker build . --file Dockerfile --tag jrwtango/c2express001:${{steps.vars.outputs.tag}}
+            - name: Push the tagged Docker image
+              run: docker push jrwtango/c2express001:${{steps.vars.outputs.tag}}
+            - name: Build the latest Docker image
+              run: docker build . --file Dockerfile --tag jrwtango/c2express001:latest
+            - name: Push the latest Docker image
+              run: docker push jrwtango/c2express001:latest
