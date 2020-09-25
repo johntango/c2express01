@@ -26,12 +26,8 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Build
-        run: docker build -t back .
-      - name: Tags
-        run: |
-          docker tag back ${{ secrets.DOCKER_USER }}/back:${{ github.sha }}
-          docker tag back ${{ secrets.DOCKER_USER }}/back:latest
+        run: docker build -t c2express001 .
       - name: Push
         run: |
-          docker push ${{ secrets.DOCKER_USER }}/back:${{ github.sha }}
-          docker push ${{ secrets.DOCKER_USER }}/back:latest
+          docker push ${{ secrets.DOCKER_USER }}/c2express001:${{ github.sha }}
+          docker push ${{ secrets.DOCKER_USER }}/c2express001:latest
