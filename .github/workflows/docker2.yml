@@ -13,6 +13,6 @@ jobs:
         id: vars
         run: echo ::set-output name=tag::$(echo ${GITHUB_REF:10})
       - name: Build the tagged Docker image
-        run: docker build -t c2express001 .
+        run: docker build -t c2express002 .
       - name: Push the tagged Docker image
-        run: docker push jrwtango/c2express001:latest
+        run: docker push jrwtango/c2express002
