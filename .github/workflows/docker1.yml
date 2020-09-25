@@ -29,5 +29,5 @@ jobs:
         run: docker build -t c2express001 .
       - name: Push
         run: |
-          docker push ${{ secrets.DOCKER_USER }}/c2express001:${{ github.sha }}
-          docker push ${{ secrets.DOCKER_USER }}/c2express001:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME}}/c2express001:${{ github.sha }}
+          docker push ${{ secrets.DOCKERHUB_USERNAME}}/c2express001:latest
