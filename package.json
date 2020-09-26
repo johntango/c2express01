@@ -12,6 +12,7 @@
     "express": "^4.17.1",
     "jest": "^26.4.2",
     "lowdb": "^1.0.0",
-    "node-fetch": "^2.6.1"
+    "node-fetch": "^2.6.1",
+    "supertest": "^5.0.0"
   }
 }
