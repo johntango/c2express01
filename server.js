@@ -1,8 +1,5 @@
 // server is used for testing only using supertest
-const app = require("./server"); // Link to your server file
-const supertest = require("supertest");
-const request = supertest(app);
-app.use(express.json());
+const app = require("./serverApp");
 // store contacts in an arrays
 var contacts = [
   {
@@ -46,4 +43,4 @@ app.post("/contact", (req, res) => {
   contacts.push({ name: req.body.name, email: req.body.email });
   res.json(req.body);
 });
-module.exports = app;
+app.listen(3000, () => console.log("Running on port 3000"));

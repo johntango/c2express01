@@ -1,7 +1,8 @@
-it("Gets the test endpoint", async (done) => {
-  // Sends GET Request to /test endpoint
-  const response = await request.get("/contacts");
-  expect(response.status).toBe(200);
-  expect(response.body.message).toBe("pass!");
-  done();
+const request = require("supertest");
+const app = require("./serverApp");
+describe("Test the root path", () => {
+  test("It should response the GET method", async () => {
+    const response = await request(app).get("/");
+    expect(response.statusCode);
+  });
 });
