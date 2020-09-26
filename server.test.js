@@ -9,18 +9,12 @@ describe("Test the root path", () => {
 });
 describe("POST /contact", function () {
   test("contact.name should be john", async (done) => {
-    request(app)
+    const response = await request(app)
       .post("/contact")
       .send({ name: "john", email: "john@mit.edu" }) //json
-      .set("Accept", "application/json")
-      .expect(function (res) {
-        res.body.id = "some fixed id";
-        res.body.name = "john";
-      })
-      .expect(200, {
-        id: "some fixed id",
-        name: "john",
-      });
+      .set("Accept", "application/json");
+    expect((response.body.id = "some fixed id"));
+    expect((response.body.name = "john"));
     done();
   });
 });
