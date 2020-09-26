@@ -1,7 +1,7 @@
 //app.js
 const express = require("express");
 const app = express();
-
+var contacts = [];
 app.get("/", function (req, res) {
   res.send("<h1> Routes: try POST to /contact and GET /contacts </h1>");
 });

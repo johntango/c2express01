@@ -3,7 +3,7 @@ const app = require("./serverApp");
 describe("Test the root path", () => {
   test("It should response the GET method", async (done) => {
     const response = await request(app).get("/");
-    expect(response.statusCode);
+    expect(response.statusCode == 200);
     done();
   });
 });
@@ -15,6 +15,7 @@ describe("POST /contact", function () {
       .set("Accept", "application/json");
     expect((response.body.id = "some fixed id"));
     expect((response.body.name = "john"));
+    expect((response.body.email = "john@mit.edu"));
     done();
   });
 });
