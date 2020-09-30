@@ -9,4 +9,4 @@ WORKDIR /usr/src/app
 ENV PATH = /usr/src/app/node_modules/bin : $PATH
 COPY . .
 EXPOSE 3000
-CMD ["node", "contacts.js"]
+
