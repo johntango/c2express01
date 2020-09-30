@@ -3,7 +3,7 @@ var app = express();
 const fetch = require("node-fetch");
 app.use(express.json());
 // store contacts in an arrays
-var contacts = [];
+var contacts = [{ name: "john" }];
 const getData = async () => {
   let url = "https://pollysnips.s3.amazonaws.com/users.json";
   try {
@@ -16,7 +16,7 @@ const getData = async () => {
 };
 getData();
 app.get("/", function (req, res) {
-  res.send("<h1> Routes: try POST to /contact and GET /contacts </h1>");
+  res.send("<h1> O Routes: try POST to /contact and GET /contacts </h1>");
 });
 // list all contacts
 app.get("/contacts", function (req, res) {

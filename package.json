@@ -4,7 +4,8 @@
   "description": "",
   "main": "contacts.js",
   "scripts": {
-    "test": "jest"
+    "start": "nodemon --watch contacts.js",
+    "test": "jest --detectOpenHandles"
   },
   "author": "jrw@mit.edu",
   "license": "MIT",
@@ -13,6 +14,7 @@
     "jest": "^26.4.2",
     "lowdb": "^1.0.0",
     "node-fetch": "^2.6.1",
+    "nodemon": "^2.0.4",
     "supertest": "^5.0.0"
   }
 }
