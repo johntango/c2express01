@@ -5,8 +5,14 @@
       "age": 21,
       "email": "peter@mit.edu",
       "courses": [
-        { "number": "1.00", "name": "engr comp" },
-        { "number": "3.00", "name": "intro bio" }
+        {
+          "number": "1.00",
+          "name": "engr comp"
+        },
+        {
+          "number": "3.00",
+          "name": "intro bio"
+        }
       ]
     },
     {
@@ -14,8 +20,14 @@
       "age": 32,
       "email": "bruce@mit.edu",
       "courses": [
-        { "number": "2.00", "name": "intro ME" },
-        { "number": "3.00", "name": "intro MS" }
+        {
+          "number": "2.00",
+          "name": "intro ME"
+        },
+        {
+          "number": "3.00",
+          "name": "intro MS"
+        }
       ]
     },
     {
@@ -23,8 +35,14 @@
       "age": 25,
       "email": "diana@mit.edu",
       "courses": [
-        { "number": "2.00", "name": "intro arch" },
-        { "number": "1.00", "name": "intro chem" }
+        {
+          "number": "2.00",
+          "name": "intro arch"
+        },
+        {
+          "number": "1.00",
+          "name": "intro chem"
+        }
       ]
     }
   ]

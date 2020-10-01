@@ -6,8 +6,7 @@ const adapter = new FileSync("db.json");
 const db = low(adapter);
 db.defaults({ contacts: [] }).write();
 app.use(express.json());
-// store contacts in an array
-const contacts = [];
+
 app.get("/", function (req, res) {
   res.send("<h1> Routes: try POST to /contact and GET /contacts </h1>");
 });
