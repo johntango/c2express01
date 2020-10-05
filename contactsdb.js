@@ -17,11 +17,11 @@ app.get("/contacts", function (req, res) {
 });
 // add a contact
 app.post("/contact", (req, res) => {
-  contacts.push({ name: req.body.name, email: req.body.email });
-  res.json(req.body);
   db.get("contacts")
     .push({ name: req.body.name, email: req.body.email })
     .write();
+  let con = db.get("contacts");
+  res.json(con);
 });
 
 app.listen(3000);
