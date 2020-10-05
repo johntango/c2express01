@@ -4,7 +4,7 @@
   "description": "",
   "main": "contacts.js",
   "scripts": {
-    "start": "nodemon --watch contacts.js",
+    "start": "node contactsdb.js",
     "test": "jest --detectOpenHandles"
   },
   "author": "jrw@mit.edu",
