@@ -1,3 +1,4 @@
+// this uses "fetch" to get data from a url
 var express = require("express");
 var app = express();
 const fetch = require("node-fetch");

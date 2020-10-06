@@ -1,3 +1,4 @@
+// this uses lowDB to store state
 var express = require("express");
 var app = express();
 const low = require("lowdb");
