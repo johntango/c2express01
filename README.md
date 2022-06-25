@@ -1,4 +1,29 @@
-# c2express01
-
-Test simple routes in Express eg GET, POST
-use GitHub Actions to create image and push to DockerHub
+{"data":[
+  {
+    name: "peter parker",
+    age: 21,
+    email: "peter@mit.edu",
+    courses: [
+      { number: "1.00", name: "engr comp" },
+      { number: "3.00", name: "intro bio" },
+    ],
+  },
+  {
+    name: "bruce wayne",
+    age: 32,
+    email: "bruce@mit.edu",
+    courses: [
+      { number: "2.00", name: "intro ME" },
+      { number: "3.00", name: "intro MS" },
+    ],
+  },
+  {
+    name: "diana prince",
+    age: 25,
+    email: "diana@mit.edu",
+    courses: [
+      { number: "2.00", name: "intro arch" },
+      { number: "1.00", name: "intro chem" },
+    ],
+  },
+]}
